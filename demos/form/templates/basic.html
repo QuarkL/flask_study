@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.0-alpha1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<form method="post">
+    {{ form.csrf_token }}
+    {{ form.username.label }}<br>
+    {{ form.username (class = 'form-control')}}<br>
+    {% if form.username.errors %}
+        {% for message in form.username.errors %}
+        <small class="error">{{ message }}</small><br>
+        {% endfor %}
+    {% endif %}
+    {{ form.password.label }}<br>
+    {{ form.password (class = 'form-control')}}<br>
+    {% if form.password.errors %}
+        {% for message in form.password.errors %}
+        <small class="error">{{ message }}</small><br>
+        {% endfor %}
+    {% endif %}
+    {{ form.remember (class = 'form-check-input')}}{{ form.remember.label }}<br>
+    {{ form.submit (class = 'btn btn-primary')}}<br>
+</form>
+</body>
+</html>
